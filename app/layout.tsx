@@ -11,8 +11,8 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: 'DARK G ADMIN DASHBOARD',
-  description: 'DARK G ADMIN DASHBOARD - A dashboard for DARK G ADMIN',
+  title: 'Dark G Admin Dashboard',
+  description: 'Dark G Admin Dashboard - A dashboard for Dark G Store.',
 }
 
 export default function RootLayout({
