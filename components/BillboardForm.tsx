@@ -52,7 +52,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
 
     const title = initialData ? "Edit Billboard" : "Create Billboard";
     const description = initialData ? "Edit a Billboard" : "Add new Billboard";
-    const toastMessage = initialData ? "Billboard Updated!" : "Billboard Created!";
+    const toastMessage = initialData ? "Billboard Updated!" : "Billboard created successfully";
     const action = initialData ? "Save changes" : "Create";
 
     const onSubmit = async (data: BillboardFormValues) => {
@@ -64,6 +64,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
                 await axios.post(`/api/${params.storeId}/billboards`, data);
             }
             router.refresh();
+            router.push(`/${params.storeId}/billboards`);
             toast.success(toastMessage);
             
         } catch (error) {
