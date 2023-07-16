@@ -10,6 +10,7 @@ import { Heading } from "@/components/ui/Heading";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { DataTable } from "@/components/ui/data-table";
+import { ApiRoutes } from "@/components/ApiRoutes";
 
 interface BillboardClientProps {
     data: BillboardClmns[];
@@ -35,6 +36,9 @@ export const BillboardClient: React.FC<BillboardClientProps> = ({
             </div>
             <Separator />
             <DataTable columns={columns} data={data} searchKey="label" />
+            <Heading title="API's" description="API billboard calls" />
+            <Separator />
+            <ApiRoutes entityName="billboards" entityIdName="billboardId" />
         </>
     )
 }
