@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 
-import { BillboardClmns } from "@/components/BillboardColumns";
+import { BillboardClmns } from "@/components/billboard/BillboardColumns";
 import { AlertModal } from "@/components/modals/AlertModal";
 
 import { Button } from "@/components/ui/button";
@@ -37,7 +37,6 @@ export const CellAction: React.FC<CellActionProps> = ({
 
             await axios.delete(`/api/${params.storeId}/billboards/${data.id}`);
             router.refresh();
-            router.push(`/${params.storeId}/billboards`);
             toast.success("Billboard deleted successfully.");
         } catch (error) {
             toast.error("Make sure you have no categories in your store inside this billboard.");
