@@ -3,8 +3,8 @@ import { format } from "date-fns";
 
 import prismadb from "@/lib/prismadb";
 
-import { BillboardClient } from "@/components/BillboardClient";
-import { BillboardClmns } from "@/components/BillboardColumns";
+import { BillboardClient } from "@/components/billboard/BillboardClient";
+import { BillboardClmns } from "@/components/billboard/BillboardColumns";
 
 const BillboardPage = async ({
     params
