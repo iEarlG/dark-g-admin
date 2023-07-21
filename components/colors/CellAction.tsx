@@ -7,14 +7,14 @@ import toast from "react-hot-toast";
 
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 
-import { SizeClmns } from "@/components/sizes/SizesColumns";
+import { ColorsClmns } from "./ColorsColumns";
 import { AlertModal } from "@/components/modals/AlertModal";
 
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 interface CellActionProps {
-    data: SizeClmns;
+    data: ColorsClmns;
 }
 
 export const CellAction: React.FC<CellActionProps> = ({
@@ -35,11 +35,11 @@ export const CellAction: React.FC<CellActionProps> = ({
         try {
             setIsLoading(true);
 
-            await axios.delete(`/api/${params.storeId}/sizes/${data.id}`);
+            await axios.delete(`/api/${params.storeId}/colors/${data.id}`);
             router.refresh();
-            toast.success("Sizes deleted successfully.");
+            toast.success("Colors deleted successfully.");
         } catch (error) {
-            toast.error("Make sure you have deleted all billboards that use this size.");
+            toast.error("Make sure you deleted all the colors that are using this billboard.");
         } finally {
             setIsLoading(false);
             setIsOpen(false);
@@ -62,7 +62,7 @@ export const CellAction: React.FC<CellActionProps> = ({
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                     <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                    <DropdownMenuItem onClick={() => router.push(`/${params.storeId}/sizes/${data.id}`)}>
+                    <DropdownMenuItem onClick={() => router.push(`/${params.storeId}/colors/${data.id}`)}>
                         <Edit className="h-4 w-4 mr-2"/>
                         Update
                     </DropdownMenuItem>

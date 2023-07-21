@@ -78,7 +78,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({
 
             await axios.delete(`/api/${params.storeId}/colors/${params.colorId}`);
             router.refresh();
-            router.push(`/${params.storeId}/color`);
+            router.push(`/${params.storeId}/colors`);
 
             toast.success("Colors deleted successfully.");
         } catch (error) {
