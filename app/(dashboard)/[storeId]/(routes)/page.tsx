@@ -3,7 +3,7 @@ import { CreditCard, DollarSign, Package } from "lucide-react";
 import { formatter } from "@/lib/utils";
 
 import { getInStocks } from "@/actions/getInStocks";
-import { getTotalRevenue } from "@/actions/getTotalRevenue";
+import { getGraphRevenueData, getTotalRevenue } from "@/actions/getTotalRevenue";
 import { getMonthlyPercentage } from "@/actions/getMonthlyPercentage";
 
 import { Separator } from "@/components/ui/separator";
@@ -20,6 +20,7 @@ const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
     const totalRevenue = await getTotalRevenue(params.storeId); 
     const monthlyPercentage = await getMonthlyPercentage(params.storeId);
     const inStock = await getInStocks(params.storeId);
+    const graphRevenue = await getGraphRevenueData(params.storeId);
 
     return (
         <div className="flex-col">
@@ -75,7 +76,7 @@ const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
                         <CardTitle>Overview</CardTitle>
                     </CardHeader>
                     <CardContent className="pl-2">
-                        <Overview data={[]} />
+                        <Overview data={graphRevenue} />
                     </CardContent>
                 </Card>
             </div>
